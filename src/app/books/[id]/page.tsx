@@ -1,50 +1,62 @@
-'use client'; // client component for buttons
-
+import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 
-// Sample books
-export const books = [
+type Book = {
+  id: number;
+  title: string;
+  author: string;
+  price: string;
+  cover: string;
+};
+
+const books: Book[] = [
   { id: 1, title: "The Elegant Life", author: "Jane Doe", price: "GHS 50", cover: "/books/book-1.jpg" },
-  { id: 2, title: "Dreams & Ambitions", author: "Mary Smith", price: "GHS 45", cover: "/books/book-2.jpg" },
-  { id: 3, title: "Graceful Mind", author: "Linda White", price: "GHS 60", cover: "/books/book-3.jpg" },
-  { id: 4, title: "Soft Power", author: "Anne Brown", price: "GHS 55", cover: "/books/book-4.jpg" },
+  { id: 2, title: "Empowered Women", author: "Mary Smith", price: "GHS 60", cover: "/books/book-2.jpg" },
+  { id: 3, title: "She Leads", author: "Aisha Brown", price: "GHS 70", cover: "/books/book-3.jpg" },
+  { id: 4, title: "Inspiring Stories", author: "Linda Kofi", price: "GHS 55", cover: "/books/book-4.jpg" },
 ];
 
-export default function BooksPage() {
+export default function BookPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const bookId = Number(params.id);
+  const book = books.find((b) => b.id === bookId);
+
+  if (!book) {
+    return notFound();
+  }
+
   return (
-    <main className="max-w-6xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-8 text-center">
-        Our Female-Oriented Book Collection
-      </h2>
+    <main className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
+      <p className="text-gray-500 mb-4">by {book.author}</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {books.map((book) => (
-          <div key={book.id} className="bg-white rounded-xl shadow-md p-4 flex flex-col">
-            <div className="relative w-full h-64 mb-4">
-              <Image src={book.cover} alt={book.title} fill className="object-cover rounded-lg" />
-            </div>
-            <h3 className="text-lg font-semibold">{book.title}</h3>
-            <p className="text-sm text-gray-600 mb-1">{book.author}</p>
-            <p className="text-pink-600 font-bold mb-4">{book.price}</p>
+      <Image
+        src={book.cover}
+        alt={book.title}
+        width={600}
+        height={400}
+        className="rounded mb-4"
+      />
 
-            <div className="mt-auto flex flex-col gap-2">
-              <Link
-                href={`/read/${book.id}`}
-                className="text-center bg-pink-600 text-white px-4 py-2 rounded-lg border border-pink-600 hover:bg-white hover:text-pink-600 transition-colors"
-              >
-                Read Online 🔒
-              </Link>
-              <Link
-                href={`/order/${book.id}`}
-                className="text-center bg-green-600 text-white px-4 py-2 rounded-lg border border-green-600 hover:bg-white hover:text-green-600 transition-colors"
-              >
-                Order Book 🛒
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
+      <p className="text-lg font-semibold mb-4">
+        Price: {book.price}
+      </p>
+
+      <p className="text-gray-700 mb-6">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Replace this with a real book description later.
+      </p>
+
+      {/* READ BUTTON */}
+      <a
+        href={`/read/${book.id}`}
+        className="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black border border-black transition"
+      >
+        Read Book
+      </a>
     </main>
   );
 }
