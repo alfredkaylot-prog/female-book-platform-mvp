@@ -5,9 +5,15 @@ import type { NextRequest } from "next/server";
 export async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
-  if (req.nextUrl.pathname.startsWith("/read")) {
+  const { pathname, search } = req.nextUrl;
+
+  if (pathname.startsWith("/read")) {
     if (!token) {
       const loginUrl = new URL("/login", req.url);
+
+      // 👇 Save where user was trying to go
+      loginUrl.searchParams.set("callbackUrl", pathname + search);
+
       return NextResponse.redirect(loginUrl);
     }
   }
