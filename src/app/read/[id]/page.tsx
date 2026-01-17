@@ -9,19 +9,19 @@ export default async function ReadPage({
 }) {
   const session = await getServerSession(authOptions);
 
-  // 🚫 Not logged in → send to login
+  // 🚫 Not logged in → send to Google login + return here after
   if (!session) {
-    redirect("/login");
+    redirect(`/api/auth/signin?callbackUrl=/read/${params.id}`);
   }
 
   return (
     <main className="p-6 max-w-3xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">
-        Reading Book #{params.id}
+        📖 Reading Book #{params.id}
       </h1>
 
       <p className="text-gray-700">
-        📖 Book content will appear here.
+        Book content will appear here.
       </p>
     </main>
   );
