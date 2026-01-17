@@ -18,6 +18,10 @@ export default function HomePage() {
           Read, learn, and grow with inspiring female voices.
         </p>
       </section>
+      <div className="bg-black text-white p-4 rounded-xl">
+  Tailwind is working 🎉
+</div>
+
 
       {/* BOOK GRID */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -37,7 +41,9 @@ export default function HomePage() {
               Read Book
             </Link>
           </div>
+          
         ))}
+        
       </section>
     </>
   );
