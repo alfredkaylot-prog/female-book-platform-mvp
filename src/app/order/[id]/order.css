@@ -7,7 +7,7 @@
 
 .order-title {
   font-size: 2rem;
-  color: #3f4f3a;
+  color: var(--primary-color);
   margin-bottom: 1.5rem;
 }
 
@@ -19,7 +19,7 @@
 .order-price {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #4a6a44;
+  color: var(--accent-color);
   margin: 1rem 0 2rem;
 }
 
@@ -35,28 +35,30 @@
 .order-form select {
   padding: 0.7rem 1rem;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   font-size: 1rem;
+  background: var(--white);
+  color: var(--text-color);
 }
 
 .order-form button {
-  background: #3f4f3a;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--white);
   padding: 0.8rem;
   border-radius: 12px;
-  border: 1px solid #3f4f3a;
+  border: 1px solid var(--primary-color);
   cursor: pointer;
   transition: 0.25s ease;
+  font-weight: 600;
 }
 
 .order-form button:hover {
-  background: transparent;
-  color: #3f4f3a;
+  background: var(--secondary-color);
 }
 
 .order-back {
   display: inline-block;
   margin-top: 2rem;
-  color: #4a6a44;
+  color: var(--primary-color);
   text-decoration: underline;
 }

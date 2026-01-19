@@ -1,8 +1,19 @@
+:root {
+  --primary-color: #E91E63; /* Soft rose pink */
+  --secondary-color: #C2185B; /* Deep rose */
+  --background-color: #FFF8E1; /* Cream */
+  --text-color: #424242; /* Charcoal gray */
+  --accent-color: #FFD700; /* Gold */
+  --white: #FFFFFF;
+  --light-gray: #FAFAFA;
+  --border-color: #E0E0E0;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f9fafb;
-  color: #111;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 /* Navbar */
@@ -10,8 +21,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-color);
   padding: 16px 24px;
   position: sticky;
   top: 0;
@@ -21,15 +32,17 @@ body {
 .site-title {
   font-size: 18px;
   font-weight: bold;
+  color: var(--primary-color);
 }
 
 .nav-links a {
   margin-left: 16px;
-  color: #111;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 .nav-links a:hover {
+  color: var(--primary-color);
   text-decoration: underline;
 }
 

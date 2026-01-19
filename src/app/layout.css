@@ -1,7 +1,7 @@
 /* General body styling */
 body {
-  background: #f9fafb;
-  color: #111;
+  background: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   font-family: system-ui, sans-serif;
 }
@@ -12,8 +12,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -23,6 +23,7 @@ body {
 .site-title {
   font-size: 20px;
   font-weight: bold;
+  color: var(--primary-color);
 }
 
 /* Nav links */
@@ -35,10 +36,11 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: #111;
+  color: var(--text-color);
 }
 
 .nav-links a:hover {
+  color: var(--primary-color);
   text-decoration: underline;
 }
 

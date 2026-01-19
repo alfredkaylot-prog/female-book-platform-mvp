@@ -1,5 +1,5 @@
 .page {
-  background: #efe6d8;
+  background: var(--background-color);
   min-height: 100vh;
   padding: 2rem;
   font-family: system-ui, sans-serif;
@@ -13,12 +13,13 @@
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: #4b4b4b;
+  color: var(--text-color);
 }
 
 .hero p {
-  color: #555;
+  color: var(--text-color);
   font-size: 1.1rem;
+  opacity: 0.8;
 }
 
 .grid {
@@ -28,7 +29,7 @@
 }
 
 .card {
-  background: white;
+  background: var(--white);
   border-radius: 16px;
   padding: 1rem;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
@@ -50,12 +51,12 @@
 
 .card h3 {
   text-align: center;
-  color: #4b4b4b;
+  color: var(--text-color);
 }
 
 .author {
   text-align: center;
-  color: #7a8450;
+  color: var(--primary-color);
   font-size: 0.9rem;
 }
 
@@ -63,6 +64,7 @@
   text-align: center;
   font-weight: bold;
   margin-top: 0.4rem;
+  color: var(--accent-color);
 }
 
 .actions {
@@ -82,20 +84,20 @@
 }
 
 .btn.primary {
-  background: #7a8450;
-  color: #efe6d8;
+  background: var(--primary-color);
+  color: var(--white);
 }
 
 .btn.primary:hover {
-  background: #6b7447;
+  background: var(--secondary-color);
 }
 
 .btn.outline {
-  border: 2px solid #7a8450;
-  color: #7a8450;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .btn.outline:hover {
-  background: #7a8450;
-  color: #efe6d8;
+  background: var(--primary-color);
+  color: var(--white);
 }
