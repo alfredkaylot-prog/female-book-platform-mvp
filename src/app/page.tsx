@@ -1,32 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { books } from "@/lib/books";
 import "./home.css";
 
-type Book = {
-  id: number;
-  title: string;
-  author: string;
-  price: string;
-  cover: string;
-};
-
-const books: Book[] = [
-  { id: 1, title: "The Elegant Life", author: "Jane Doe", price: "GHS 50", cover: "/books/book-1.jpg" },
-  { id: 2, title: "Empowered Women", author: "Mary Smith", price: "GHS 60", cover: "/books/book-2.jpg" },
-  { id: 3, title: "She Leads", author: "Aisha Brown", price: "GHS 70", cover: "/books/book-3.jpg" },
-  { id: 4, title: "Inspiring Stories", author: "Linda Kofi", price: "GHS 55", cover: "/books/book-4.jpg" },
-];
-
 export default function HomePage() {
+  const { data: session } = useSession();
+
   return (
     <main className="page">
       <section className="hero">
         <h1>Discover Books Written for Women</h1>
         <p>Read, learn, and grow with inspiring female voices.</p>
+        <div className="hero-actions">
+          <Link href="/books" className="btn primary">
+            Browse All Books
+          </Link>
+          {!session && (
+            <Link href="/login" className="btn outline">
+              Sign In to Read
+            </Link>
+          )}
+        </div>
       </section>
 
       <section className="grid">
-        {books.map((book) => (
+        {books.slice(0, 4).map((book) => (
           <div key={book.id} className="card">
             <div className="cover">
               <Image src={book.cover} alt={book.title} fill />
@@ -37,16 +38,46 @@ export default function HomePage() {
             <p className="price">{book.price}</p>
 
             <div className="actions">
-              <Link href={`/login?callbackUrl=/read/${book.id}`} className="btn primary">
-                Read
+              <Link
+                href={session ? `/read/${book.id}` : `/login?callbackUrl=/read/${book.id}`}
+                className="btn primary"
+              >
+                {session ? "Read Now" : "Sign In to Read"}
               </Link>
 
-              <Link href={`/login?callbackUrl=/order/${book.id}`} className="btn outline">
+              <Link
+                href={session ? `/order/${book.id}` : `/login?callbackUrl=/order/${book.id}`}
+                className="btn outline"
+              >
                 Order
               </Link>
             </div>
           </div>
         ))}
+      </section>
+
+      {/* Featured Section */}
+      <section className="featured">
+        <div className="featured-content">
+          <h2>Why Choose Our Platform?</h2>
+          <div className="features-grid">
+            <div className="feature">
+              <div className="feature-icon">📚</div>
+              <h3>Curated Collection</h3>
+              <p>Hand-picked books by and for women, celebrating diverse voices and experiences.</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">💝</div>
+              <h3>Empowering Stories</h3>
+              <p>Inspiring narratives that motivate, educate, and transform your perspective.</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">🌟</div>
+              <h3>Quality Experience</h3>
+              <p>Seamless reading experience with progress tracking and personalized recommendations.</p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );

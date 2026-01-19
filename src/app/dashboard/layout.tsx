@@ -16,6 +16,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <nav className="space-y-4">
           <Link href="/dashboard" className="block hover:opacity-80">🏠 Home</Link>
           <Link href="/dashboard/account" className="block hover:opacity-80">👤 Account</Link>
+          <Link href="/dashboard/favorites" className="block hover:opacity-80">❤️ Favorites</Link>
           <Link href="/dashboard/history" className="block hover:opacity-80">📖 Reading History</Link>
           <Link href="/dashboard/orders" className="block hover:opacity-80">🛒 Orders</Link>
         </nav>

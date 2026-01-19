@@ -2,6 +2,7 @@ import "./globals.css";
 import "./layout.css";
 import Link from "next/link";
 import Providers from "./providers";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Female Book Platform",
@@ -27,6 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="page-container">
             {children}
           </main>
+
+          <Footer />
         </Providers>
         <script src="/theme.js" />
 

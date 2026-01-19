@@ -9,6 +9,11 @@
   --border-color: #E0E0E0;
 }
 
+/* Smooth transitions for all interactive elements */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
