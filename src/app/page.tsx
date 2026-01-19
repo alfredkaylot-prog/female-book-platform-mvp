@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import "./home.css";
 
 type Book = {
   id: number;
@@ -18,70 +19,35 @@ const books: Book[] = [
 
 export default function HomePage() {
   return (
-    <main className="max-w-7xl mx-auto px-6 pb-16">
-      
-      {/* HERO */}
-      <section className="text-center my-12">
-        <h1 className="text-4xl font-bold mb-3">
-          Discover Books Written for Women
-        </h1>
-        <p className="text-gray-600 text-lg">
-          Read, learn, and grow with inspiring female voices.
-        </p>
+    <main className="page">
+      <section className="hero">
+        <h1>Discover Books Written for Women</h1>
+        <p>Read, learn, and grow with inspiring female voices.</p>
       </section>
 
-      {/* BOOK GRID */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="grid">
         {books.map((book) => (
-          <div
-            key={book.id}
-            className="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition flex flex-col"
-          >
-            {/* COVER */}
-            <div className="relative w-full h-56 mb-3">
-              <Image
-                src={book.cover}
-                alt={book.title}
-                fill
-                className="object-cover rounded-lg"
-              />
+          <div key={book.id} className="card">
+            <div className="cover">
+              <Image src={book.cover} alt={book.title} fill />
             </div>
 
-            {/* DETAILS */}
-            <h3 className="text-lg font-semibold text-center">
-              {book.title}
-            </h3>
-            <p className="text-gray-500 text-center text-sm">
-              {book.author}
-            </p>
-            <p className="font-bold text-center mt-2">
-              {book.price}
-            </p>
+            <h3>{book.title}</h3>
+            <p className="author">{book.author}</p>
+            <p className="price">{book.price}</p>
 
-            {/* ACTION BUTTONS */}
-            <div className="mt-auto flex gap-3 pt-4">
-              {/* READ */}
-              <Link
-                href={`/login?callbackUrl=/read/${book.id}`}
-                className="flex-1 text-center bg-black text-white py-3 rounded-lg
-                           hover:bg-white hover:text-black border border-black transition"
-              >
+            <div className="actions">
+              <Link href={`/login?callbackUrl=/read/${book.id}`} className="btn primary">
                 Read
               </Link>
 
-              {/* ORDER */}
-              <Link
-                href={`/login?callbackUrl=/order/${book.id}`}
-                className="flex-1 text-center bg-white text-black py-3 rounded-lg
-                           border border-black hover:bg-black hover:text-white transition"
-              >
+              <Link href={`/login?callbackUrl=/order/${book.id}`} className="btn outline">
                 Order
               </Link>
             </div>
           </div>
         ))}
       </section>
-
     </main>
   );
 }
