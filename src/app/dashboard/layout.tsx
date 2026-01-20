@@ -3,39 +3,74 @@
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import "./dashboard.css";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [open, setOpen] = useState(true);
+  const pathname = usePathname();
+
+const isActive = (path: string) =>
+  pathname === path || pathname.startsWith(path + "/");
+
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
-      <aside className={`bg-black text-white w-64 p-6 space-y-6 transition-all ${open ? "block" : "hidden"} md:block`}>
-        <h2 className="text-2xl font-bold">📚 Dashboard</h2>
+    <div className="dashboard-root">
 
-        <nav className="space-y-4">
-          <Link href="/dashboard" className="block hover:text-pink-400">🏠 Home</Link>
-          <Link href="/dashboard/account" className="block hover:text-pink-400">👤 Account</Link>
-          <Link href="/dashboard/history" className="block hover:text-pink-400">📖 Reading History</Link>
-          <Link href="/dashboard/orders" className="block hover:text-pink-400">🛒 Orders</Link>
-        </nav>
+      {/* Sidebar */}
+      <aside className={`dashboard-sidebar ${open ? "open" : ""}`}>
+        <h2 className="dashboard-title">📚 Dashboard</h2>
+
+        <nav className="dashboard-nav">
+  <Link
+    href="/dashboard"
+    className={isActive("/dashboard") ? "active" : ""}
+  >
+    🏠 Home
+  </Link>
+
+  <Link
+    href="/dashboard/account"
+    className={isActive("/dashboard/account") ? "active" : ""}
+  >
+    👤 Account
+  </Link>
+
+  <Link
+    href="/dashboard/history"
+    className={isActive("/dashboard/history") ? "active" : ""}
+  >
+    📖 Reading History
+  </Link>
+
+  <Link
+    href="/dashboard/orders"
+    className={isActive("/dashboard/orders") ? "active" : ""}
+  >
+    🛒 Orders
+  </Link>
+</nav>
 
         <button
+          className="dashboard-logout"
           onClick={() => signOut({ callbackUrl: "/" })}
-          className="mt-10 bg-white text-black w-full py-2 rounded hover:bg-gray-200"
         >
           Logout
         </button>
       </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 p-6">
+      {/* Main Area */}
+      <main className="dashboard-main">
         {/* Mobile toggle */}
         <button
-          className="md:hidden mb-4 bg-black text-white px-4 py-2 rounded"
+          className="dashboard-toggle"
           onClick={() => setOpen(!open)}
         >
-          ☰ Menu
+          ☰
         </button>
 
         {children}

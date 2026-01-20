@@ -1,4 +1,4 @@
-'use client';
+
 
 import "./order.css";
 import { notFound } from "next/navigation";

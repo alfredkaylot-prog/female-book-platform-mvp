@@ -1,0 +1,18 @@
+.dashboard-page {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  max-width: 800px;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.dashboard-greeting {
+  font-size: 1.1rem;
+  color: var(--text);
+}
