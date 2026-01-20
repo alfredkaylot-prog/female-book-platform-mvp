@@ -94,3 +94,73 @@
     display: block;
   }
 }
+
+/* ACCOUNT */
+
+.account-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem;
+  max-width: 520px;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-row:last-child {
+  border-bottom: none;
+}
+
+.primary-btn {
+  margin-top: 1.4rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--primary);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* TABLE */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 0.9rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.table th {
+  background: var(--soft-section);
+  font-weight: 600;
+}
+
+/* READING HISTORY */
+
+.history-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+.history-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+}

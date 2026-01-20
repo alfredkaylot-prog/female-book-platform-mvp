@@ -1,0 +1,70 @@
+.reader-root {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Cover Section */
+.reader-hero {
+  display: flex;
+  gap: 24px;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.reader-hero img {
+  width: 180px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.reader-hero h1 {
+  margin-bottom: 12px;
+}
+
+.synopsis {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Chapters */
+.chapter-list {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.chapters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chapter-btn {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.chapter-btn.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Content */
+.reader-content {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 20px 80px;
+  line-height: 1.75;
+  font-size: 18px;
+}
+
+.reader-content pre {
+  white-space: pre-wrap;
+  font-family: inherit;
+}

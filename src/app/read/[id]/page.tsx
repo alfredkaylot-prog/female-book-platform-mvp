@@ -1,28 +1,56 @@
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import { authOptions } from "@/lib/auth";
+"use client";
 
-export default async function ReadPage({
-  params,
-}: {
+import { useState } from "react";
+import { notFound } from "next/navigation";
+import { books } from "@/lib/books";
+import "./reader.css";
+
+type Props = {
   params: { id: string };
-}) {
-  const session = await getServerSession(authOptions);
+};
 
-  // 🚫 Not logged in → send to Google login + return here after
-  if (!session) {
-    redirect(`/api/auth/signin?callbackUrl=/read/${params.id}`);
-  }
+export default function ReaderPage({ params }: Props) {
+  const bookId = Number(params.id);
+  const book = books.find((b) => b.id === bookId);
+
+  if (!book) return notFound();
+
+  const [activeChapter, setActiveChapter] = useState(book.chapters[0]);
 
   return (
-    <main className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">
-        📖 Reading Book #{params.id}
-      </h1>
+    <div className="reader-root">
+      {/* COVER SECTION */}
+      <section className="reader-hero">
+        <img src={book.cover} alt={book.title} />
+        <div>
+          <h1>{book.title}</h1>
+          <p className="synopsis">{book.synopsis}</p>
+        </div>
+      </section>
 
-      <p className="text-gray-700">
-        Book content will appear here.
-      </p>
-    </main>
+      {/* CHAPTER LIST */}
+      <section className="chapter-list">
+        <h3>Chapters</h3>
+        <div className="chapters">
+          {book.chapters.map((chapter) => (
+            <button
+              key={chapter.id}
+              className={`chapter-btn ${
+                chapter.id === activeChapter.id ? "active" : ""
+              }`}
+              onClick={() => setActiveChapter(chapter)}
+            >
+              {chapter.title}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* READER CONTENT */}
+      <article className="reader-content">
+        <h2>{activeChapter.title}</h2>
+        <pre>{activeChapter.content}</pre>
+      </article>
+    </div>
   );
 }

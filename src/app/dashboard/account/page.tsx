@@ -1,14 +1,27 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
-
-export default async function AccountPage() {
-  const session = await getServerSession(authOptions);
-
+export default function AccountPage() {
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Account Info</h1>
-      <p><strong>Name:</strong> {session?.user?.name}</p>
-      <p><strong>Email:</strong> {session?.user?.email}</p>
-    </div>
+    <>
+      <div className="breadcrumb">Dashboard / Account</div>
+      <h1 className="dashboard-title">My Account</h1>
+
+      <div className="account-card">
+        <div className="account-row">
+          <span>Name</span>
+          <strong>Jane Doe</strong>
+        </div>
+
+        <div className="account-row">
+          <span>Email</span>
+          <strong>jane@example.com</strong>
+        </div>
+
+        <div className="account-row">
+          <span>Membership</span>
+          <strong>Premium</strong>
+        </div>
+
+        <button className="primary-btn">Edit Profile</button>
+      </div>
+    </>
   );
 }
