@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "intl-tel-input": "^25.15.0",
     "next": "^16.1.2",
     "next-auth": "^4.24.13",
     "nodemailer": "^7.0.12",
@@ -16,6 +17,7 @@
     "react-dom": "^19.2.3"
   },
   "devDependencies": {
+    "@types/intl-tel-input": "^18.1.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

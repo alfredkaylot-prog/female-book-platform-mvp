@@ -9,6 +9,8 @@
   window.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("theme-toggle");
 
+    if (!btn) return;
+
     const applyTheme = (theme) => {
       root.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
@@ -21,7 +23,7 @@
       applyTheme(next);
     });
 
-    // set correct icon on first load
+    // Initialize icon safely
     applyTheme(root.getAttribute("data-theme") || "light");
   });
 })();

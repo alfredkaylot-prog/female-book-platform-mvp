@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
          <nav className="topbar">
@@ -20,6 +20,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <Link href="/login">Login</Link>
     <Link href="/dashboard">Dashboard</Link>
   </div>
+  
+  {/* 🌙 DARK MODE TOGGLE */}
+  <button
+  id="theme-toggle"
+  className="theme-toggle"
+  aria-label="Toggle theme"
+/>
+
 </nav>
 
 
@@ -29,6 +37,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
         </Providers>
         <script src="/theme.js" />
+        
+
 
       </body>
     </html>

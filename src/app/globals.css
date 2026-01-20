@@ -1,41 +1,62 @@
+@import "intl-tel-input/build/css/intlTelInput.css";
+
+/* ======================
+   GLOBAL RESET
+====================== */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f9fafb;
-  color: #111;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 16px 24px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+/* ======================
+   LAYOUT
+====================== */
 
-.site-title {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.nav-links a {
-  margin-left: 16px;
-  color: #111;
-  text-decoration: none;
-}
-
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-/* Content Wrapper */
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
+}
+
+/* ======================
+   THEME VARIABLES
+====================== */
+
+:root {
+  --bg: #F7FAF9;
+  --text: #24322C;
+  --muted: #5F6F68;
+  --card: #FFFFFF;
+  --border: #E4EEEA;
+  --primary: #9FCFBC;
+  --primary-hover: #89BFA9;
+  --soft-section: #F3EFE6;
+}
+
+[data-theme="dark"] {
+  --bg: #101817;
+  --text: #EAF4F1;
+  --muted: #9FB7AF;
+  --card: #182221;
+  --border: #2A3C37;
+  --primary: #9FD6C1;
+  --primary-hover: #7FC5AC;
+}
+
+
+/* ======================
+   LINKS
+====================== */
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
