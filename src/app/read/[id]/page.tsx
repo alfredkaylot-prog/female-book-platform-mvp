@@ -1,25 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import { notFound } from "next/navigation";
 import { books } from "@/lib/books";
 import "./reader.css";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default function ReaderPage({ params }: Props) {
-  const bookId = Number(params.id);
+  const { id } = use(params);
+  const bookId = Number(id);
   const book = books.find((b) => b.id === bookId);
 
   if (!book) return notFound();
 
-  const [activeChapter, setActiveChapter] = useState(book.chapters[0]);
+  // ✅ Track chapter using index instead of chapter.id
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeChapter = book.chapters[activeIndex];
 
   return (
     <div className="reader-root">
-      {/* COVER SECTION */}
+      {/* COVER */}
       <section className="reader-hero">
         <img src={book.cover} alt={book.title} />
         <div>
@@ -31,14 +34,15 @@ export default function ReaderPage({ params }: Props) {
       {/* CHAPTER LIST */}
       <section className="chapter-list">
         <h3>Chapters</h3>
+
         <div className="chapters">
-          {book.chapters.map((chapter) => (
+          {book.chapters.map((chapter, index) => (
             <button
-              key={chapter.id}
+              key={index}
               className={`chapter-btn ${
-                chapter.id === activeChapter.id ? "active" : ""
+                index === activeIndex ? "active" : ""
               }`}
-              onClick={() => setActiveChapter(chapter)}
+              onClick={() => setActiveIndex(index)}
             >
               {chapter.title}
             </button>
@@ -46,7 +50,7 @@ export default function ReaderPage({ params }: Props) {
         </div>
       </section>
 
-      {/* READER CONTENT */}
+      {/* SCROLLABLE READER */}
       <article className="reader-content">
         <h2>{activeChapter.title}</h2>
         <pre>{activeChapter.content}</pre>
