@@ -4,9 +4,10 @@ import Link from "next/link";
 import Providers from "./providers";
 
 export const metadata = {
-  title: "Female Book Platform",
-  description: "Discover books written for women.",
+  title: "Bentil's Bookshop",
+  description: "Discover inspiring books and audiobooks.",
 };
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Providers>
          <nav className="topbar">
-  <h1>Female Book Platform</h1>
+  <h1>Bentil's bookshop</h1>
   <div className="links">
     <Link href="/">Home</Link>
     <Link href="/login">Login</Link>
