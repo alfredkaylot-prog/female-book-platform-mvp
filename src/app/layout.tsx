@@ -4,7 +4,7 @@ import Link from "next/link";
 import Providers from "./providers";
 
 export const metadata = {
-  title: "Bentil's Bookshop",
+  title: "BENTIL'S BOOKSHOP",
   description: "Discover inspiring books and audiobooks.",
 };
 
@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Providers>
          <nav className="topbar">
-  <h1>Bentil's bookshop</h1>
+  <h1>BENTIL'S BOOKSHOP</h1>
   <div className="links">
     <Link href="/">Home</Link>
     <Link href="/login">Login</Link>
