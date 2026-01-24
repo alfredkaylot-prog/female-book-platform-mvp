@@ -164,3 +164,34 @@
   display: flex;
   justify-content: space-between;
 }
+
+/* 📱 Mobile optimization */
+@media (max-width: 768px) {
+
+  .dashboard {
+    padding: 1rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  .dashboard-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dashboard h1 {
+    font-size: 1.4rem;
+  }
+
+  .dashboard p {
+    font-size: 0.9rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}

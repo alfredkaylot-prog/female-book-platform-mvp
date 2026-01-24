@@ -18,8 +18,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   <h1>BENTIL'S BOOKSHOP</h1>
   <div className="links">
     <Link href="/">Home</Link>
-    <Link href="/login">Login</Link>
+    <Link href="/books">Library</Link>
     <Link href="/dashboard">Dashboard</Link>
+    <Link href="/login">Login</Link>
   </div>
   
   {/* 🌙 DARK MODE TOGGLE */}
