@@ -1,6 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import "./admin.css";
 
 export default async function AdminLayout({
   children,
@@ -16,18 +18,41 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      <aside className="w-64 bg-[#2f4f3f] text-white p-6 space-y-6">
-        <h2 className="text-xl font-bold">🛠 Admin Panel</h2>
+    <div className="admin-shell">
 
-        <nav className="space-y-3">
-          <a href="/admin">📊 Dashboard</a>
-          <a href="/admin/books">📚 Books</a>
-          <a href="/admin/upload">⬆ Upload</a>
+      {/* SIDEBAR */}
+      <aside className="admin-sidebar">
+        <div className="admin-logo">
+          <h2>🛠 Admin Panel</h2>
+          <span>Bentil&apos;s Bookshop</span>
+        </div>
+
+        <nav className="admin-nav">
+          <Link href="/admin" className="admin-link">
+            📊 Dashboard
+          </Link>
+
+          <Link href="/admin/books" className="admin-link">
+            📚 Books
+          </Link>
+
+          <Link href="/admin/upload" className="admin-link">
+            ⬆ Upload
+          </Link>
         </nav>
+
+        <div className="admin-footer">
+          © {new Date().getFullYear()} Bentil&apos;s Bookshop
+        </div>
       </aside>
 
-      <main className="flex-1 p-8">{children}</main>
+      {/* CONTENT */}
+      <main className="admin-main">
+        <div className="admin-card">
+          {children}
+        </div>
+      </main>
+
     </div>
   );
 }

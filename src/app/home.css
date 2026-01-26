@@ -90,13 +90,18 @@
   transition: all 0.2s ease;
 }
 
-.btn.primary {
-  background: #2f4f3f;
-  color: white;
+.btn-primary {
+  background: #f4c2cc;
+  color: #24322c;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-.btn.primary:hover {
-  background: #243f32;
+.btn-primary:hover {
+  background: #ecadb9;
+  transform: translateY(-1px);
 }
 
 .btn.secondary {
@@ -105,7 +110,7 @@
 }
 
 .btn.secondary:hover {
-  background: #d9ebe4;
+  background: #ebd9e3;
 }
 
 .btn.outline {

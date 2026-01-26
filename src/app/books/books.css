@@ -95,7 +95,7 @@
 
 .format:hover {
   transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 3px 8px rgba(26, 2, 2, 0.12);
 }
 
 /* Full width Audiobook */

@@ -1,0 +1,144 @@
+.admin-books-page h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2f4f3f;
+}
+
+/* Empty state */
+.empty {
+  padding: 40px;
+  text-align: center;
+  color: #777;
+  border: 2px dashed #d9e3dd;
+  border-radius: 12px;
+}
+
+/* Table */
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.books-table th {
+  text-align: left;
+  padding: 14px;
+  background: #f1f5f3;
+  color: #2f4f3f;
+  font-weight: 600;
+}
+
+.books-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.books-table tr:hover {
+  background: #fafdfb;
+}
+
+/* Cover */
+.cover-thumb {
+  width: 52px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.15s ease;
+}
+
+.btn.publish {
+  background: #2f4f3f;
+  color: white;
+}
+
+.btn.publish:hover {
+  background: #244032;
+}
+
+.btn.edit {
+  background: #eef5f1;
+  color: #2f4f3f;
+}
+
+.btn.edit:hover {
+  background: #ddece5;
+}
+
+.btn.delete {
+  background: #ffeaea;
+  color: #a20000;
+}
+
+.btn.delete:hover {
+  background: #ffd6d6;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  width: 420px;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.modal h2 {
+  margin-bottom: 16px;
+  color: #2f4f3f;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.modal-formats input {
+  margin-bottom: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn.save {
+  background: #2f4f3f;
+  color: white;
+}
+
+.btn.cancel {
+  background: #eee;
+}
