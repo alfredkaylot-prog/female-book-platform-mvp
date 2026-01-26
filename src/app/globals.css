@@ -65,3 +65,58 @@ html, body {
   overflow-x: hidden;
 }
 
+
+/* ======================
+   BRAND BUTTONS
+====================== */
+
+.btn-primary {
+  background: #f4c2cc;
+  color: #24322c;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #ecadb9;
+  transform: translateY(-1px);
+}
+
+/* Outline button */
+.btn-outline {
+  border: 1.5px solid #f4c2cc;
+  color: #a03d55;
+  background: transparent;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(244, 194, 204, 0.15);
+}
+
+/* Subtle button */
+.btn-soft {
+  background: #fbe3e8;
+  color: #a03d55;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-soft:hover {
+  background: #f6ccd5;
+}
